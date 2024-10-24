@@ -393,7 +393,7 @@ export default function OffersForm() {
   return (
     <div className=" w-full">
       <Tabs className=" space-y-[3rem]" defaultValue="personalisez">
-        <TabsList className="flex justify-center gap-8">
+        <TabsList className="flex lg:flex-row flex-col justify-center gap-8">
           <TabsTrigger className="uppercase w-fit" value="personalisez">
             Personnaliser lr forfait
           </TabsTrigger>
@@ -405,7 +405,7 @@ export default function OffersForm() {
           className=" flex flex-col gap-[3rem] items-center"
           value="personalisez"
         >
-          <div className=" space-x-4 bg-white shadow-md py-2 px-6 rounded-[40px]">
+          <div className=" space-x-4 bg-white shadow-md py-2 lg:px-6 px-2 rounded-[40px]">
             {[30, 15, 7].map((Element, index) => (
               <Button
                 key={Element}
@@ -431,10 +431,13 @@ export default function OffersForm() {
             <Carousel opts={{ startIndex: 1 }} className="w-full ">
               <CarouselContent className=" ml-0 ">
                 {offerFeatures.internet.values.map((Element, index) => (
-                  <CarouselItem className=" pl-0 lg:basis-1/4" key={index}>
+                  <CarouselItem
+                    className=" basis-[30%] pl-0 lg:basis-1/4"
+                    key={index}
+                  >
                     <Button
                       className={clsx(
-                        "bg-transparent hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full text-2xl border-2 border-oredoo ",
+                        "bg-transparent hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full text-lg lg:text-2xl border-2 border-oredoo ",
                         {
                           "bg-oredoo text-white":
                             Element.offre === totalOffer.internet.offre,
@@ -455,10 +458,13 @@ export default function OffersForm() {
             <Carousel opts={{ startIndex: 1 }} className="w-full ">
               <CarouselContent className=" ml-0 ">
                 {offerFeatures.appelOredoo.values.map((Element, index) => (
-                  <CarouselItem className=" pl-0 lg:basis-1/4" key={index}>
+                  <CarouselItem
+                    className="basis-[30%] pl-0 lg:basis-1/4"
+                    key={index}
+                  >
                     <Button
                       className={clsx(
-                        "bg-transparent hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full text-2xl border-2 border-oredoo ",
+                        "bg-transparent text-lg hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full lg:text-2xl border-2 border-oredoo ",
                         {
                           "bg-oredoo text-white":
                             Element.offre === totalOffer.appelOredoo.offre,
@@ -479,10 +485,13 @@ export default function OffersForm() {
             <Carousel opts={{ startIndex: 1 }} className="w-full ">
               <CarouselContent className=" ml-0 ">
                 {offerFeatures.appelAutres.values.map((Element, index) => (
-                  <CarouselItem className=" pl-0 lg:basis-1/4" key={index}>
+                  <CarouselItem
+                    className="basis-[30%] pl-0 lg:basis-1/4"
+                    key={index}
+                  >
                     <Button
                       className={clsx(
-                        "bg-transparent hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full text-2xl border-2 border-oredoo ",
+                        "bg-transparent text-lg hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full lg:text-2xl border-2 border-oredoo ",
                         {
                           "bg-oredoo text-white":
                             Element.offre === totalOffer.appelAutres.offre,
@@ -503,10 +512,13 @@ export default function OffersForm() {
             <Carousel opts={{ startIndex: 1 }} className="w-full ">
               <CarouselContent className=" ml-0 ">
                 {offerFeatures.sms.values.map((Element, index) => (
-                  <CarouselItem className=" pl-0 lg:basis-1/4" key={index}>
+                  <CarouselItem
+                    className=" pl-0 basis-[30%] lg:basis-1/4"
+                    key={index}
+                  >
                     <Button
                       className={clsx(
-                        "bg-transparent hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full text-2xl border-2 border-oredoo ",
+                        "bg-transparent text-lg hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full lg:text-2xl border-2 border-oredoo ",
                         {
                           "bg-oredoo text-white":
                             Element.offre === totalOffer.sms.offre,
@@ -520,14 +532,14 @@ export default function OffersForm() {
               </CarouselContent>
             </Carousel>
           </div>
-          <div className=" w-full flex items-center justify-between">
+          <div className=" w-full flex flex-col lg:flex-row items-center justify-between">
             <h3>Sélectionnez votre EXTRA</h3>
-            <div className=" flex w-full  gap-4 ">
+            <div className=" flex w-full flex-wrap lg:flex-nowrap  gap-4 ">
               {extra.map((Element, index) => (
                 <Button
                   key={`${Element.offre}-${index}`}
                   className={clsx(
-                    " bg-transparent w-[23%] h-full text-black hover:bg-transparent hover:outline-2 hover:outline hover:outline-oredoo rounded-lg p-3 flex flex-col gap-3 shadow-md",
+                    " bg-transparent basis-[47%]  lg:basis-1/4 h-full text-black hover:bg-transparent hover:outline-2 hover:outline hover:outline-oredoo rounded-lg p-3 flex flex-col gap-3 shadow-md",
                     {
                       "outline-2 outline outline-oredoo ":
                         Element.offre === totalOffer.extra.offre,

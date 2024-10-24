@@ -37,7 +37,7 @@ export default function Footer() {
   ];
   return (
     <div className=" !mt-0 py-16 bg-[#e0e0e0]">
-      <div className="wrapper flex items-center gap-8 ">
+      <div className="wrapper flex lg:flex-row flex-col items-center gap-12 lg:gap-8 ">
         <div className=" space-y-8 basis-[30%]">
           <div>
             <Image src={logo} alt="" />
@@ -61,9 +61,12 @@ export default function Footer() {
           </div>
         </div>
         <div className=" space-y-12 basis-[70%]">
-          <div className=" flex gap-2">
+          <div className=" flex lg:flex-row flex-col items-center lg:items-start gap-8 lg:gap-2">
             {content.map((Element) => (
-              <ul className=" basis-1/3 space-y-6" key={Element.title}>
+              <ul
+                className=" basis-1/3 text-center lg:text-left space-y-3 lg:space-y-6"
+                key={Element.title}
+              >
                 <p className=" text-lg font-semibold">{Element.title}</p>
                 <div className=" space-y-3">
                   {Element.values.map((Element) => (
@@ -75,7 +78,7 @@ export default function Footer() {
               </ul>
             ))}
           </div>
-          <div className=" flex justify-between">
+          <div className=" flex flex-col text-center gap-8 lg:gap-0 lg:text-left lg:flex-row lg:justify-between">
             <h3>TÉLÉCHARGER L APP</h3>
             <div className=" basis-1/2">
               <DownloadApp />

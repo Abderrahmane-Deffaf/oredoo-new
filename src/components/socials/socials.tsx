@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function Socials() {
   return (
-    <div className=" mt-0 bg-[#f1c400] py-16">
+    <div className=" !mt-0 bg-[#f1c400] py-16">
       <div className="wrapper flex flex-col items-center gap-8">
         <h2>Restez connectés</h2>
         <div className=" flex space-x-6">

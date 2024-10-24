@@ -45,9 +45,11 @@ export default function Faq() {
   ];
   return (
     <div className=" !m-0 bg-[#F7F7F7] py-16">
-      <div className="wrapper flex gap-4 ">
-        <div className=" flex h-full justify-center flex-col items-center basis-1/2">
-          <h2>Frequently Asked Questions</h2>
+      <div className="wrapper flex lg:flex-row flex-col gap-4 ">
+        <div className=" flex h-full space-y-4 justify-center flex-col items-center basis-1/2">
+          <h2 className=" text-center lg:text-left">
+            Frequently Asked Questions
+          </h2>
           <Image src={faq_image} alt="" />
         </div>
         <div className=" basis-1/2">

@@ -17,20 +17,22 @@ export default function SelectOffre() {
   return (
     <div>
       <div className="wrapper flex gap-8 flex-col items-center">
-        <h2>Sélectionnez un forfait existant</h2>
+        <h2 className=" text-center lg:text-left">
+          Sélectionnez un forfait existant
+        </h2>
         <Carousel opts={{ startIndex: 1 }} className="w-full max-w-[80%]">
-          <CarouselContent className=" space-x-8  items-center">
+          <CarouselContent className="   lg:space-x-8  items-center">
             {Array.from({ length: 3 }).map((_, index) => (
               <CarouselItem
                 className={clsx(
-                  "md:basis-1/2  shadow-sm border-[2px] h-fit rounded-lg  lg:basis-1/3",
+                  "md:basis-1/2 ml-1 lg:ml-0  border-oredoo lg:border-gray-400   rounded-lg  border-[2px]  basis-[90%]    shadow-sm  h-fit   lg:basis-1/3",
                   {
-                    "border-[#D6001C] lg:min-w-[25rem] py-10": index === 1,
+                    "lg:border-oredoo lg:min-w-[25rem]   lg:py-10": index === 1,
                   }
                 )}
                 key={index}
               >
-                <div className="p-4  space-y-6 ">
+                <div className={clsx("p-4 space-y-6 ", {})}>
                   <div className="flex justify-between items-center">
                     <p
                       className={clsx(" font-bold text-xl", {

@@ -1,10 +1,11 @@
 import appgallery from "@/assets/icons/appgallery.svg";
 import appstore from "@/assets/icons/appstore.svg";
 import googleplay from "@/assets/icons/googlePlay.svg";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function DownloadApp() {
+export default function DownloadApp({ className }: { className?: string }) {
   const apps = [
     {
       alt: "google paly",
@@ -14,7 +15,7 @@ export default function DownloadApp() {
     { alt: "appgallery", image: appgallery },
   ];
   return (
-    <div className="flex gap-2">
+    <div className={cn(["flex gap-2", className])}>
       {apps.map((Element) => (
         <Link key={Element.alt} href="">
           <Image src={Element.image} alt={Element.alt} />

@@ -10,8 +10,8 @@ import Image from "next/image";
 export default function Snapchat() {
   return (
     <div className=" relative flex items-center py-[4rem] h-full overflow-hidden ">
-      <div className=" relative flex items-center gap-4 z-10 wrapper">
-        <div className=" basis-1/3 text-white space-y-4">
+      <div className=" relative flex lg:flex-row flex-col lg:text-left text-center items-center gap-8 lg:gap-4 z-10 wrapper">
+        <div className=" lg:basis-1/3 text-white space-y-4">
           <h2>Snapchat gratuit tous les jours</h2>
           <p>
             En plus des avantages précédents, profitez de Snapchat gratuit tous
@@ -24,7 +24,7 @@ export default function Snapchat() {
         </div>
       </div>
       <Image
-        className=" top-0  object-cover absolute w-full"
+        className=" top-0  object-cover absolute  h-full w-full"
         src={snapbg}
         alt=""
       />

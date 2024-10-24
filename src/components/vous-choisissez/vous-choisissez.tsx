@@ -14,42 +14,42 @@ export default function VousChoisissez() {
           Sur N'YOOZ <br /> c'est vous qui choisissez!
         </h2>
         <div className=" flex flex-wrap gap-y-16 justify-between">
-          <div className="flex basis-[48%]">
-            <div className=" basis-[48%]">
+          <div className="flex flex-wrap justify-center gap-4 lg:gap-0 basis-full lg:basis-[48%]">
+            <div className="justify-center lg:justify-start flex basis-full lg:basis-[48%]">
               <Image src={premierapp} alt="" />
             </div>
-            <div className=" space-y-5 basis-[48%]">
+            <div className=" space-y-5 basis-full items-center lg:items-start text-center lg:text-left lg:basis-[48%]">
               <NumberOrder number={1} />
               <p className=" font-semibold">Composez votre numéro mobile</p>
-              <DownloadApp />
+              <DownloadApp className=" justify-center" />
             </div>
           </div>
-          <div className="flex basis-[48%]">
-            <div className=" text-right space-y-5 basis-[48%]">
+          <div className="flex basis-full flex-wrap justify-center gap-4 lg:gap-0 lg:basis-[48%]">
+            <div className=" order-2 lg:order-1 lg:text-right space-y-5 basis-full text-center lg:basis-[48%]">
               <NumberOrder number={2} />
               <p className=" font-semibold">Composez votre numéro mobile</p>
             </div>
-            <div className=" basis-[48%]">
+            <div className="basis-full justify-center lg:justify-start flex order-1 lg:order-2 lg:basis-[48%]">
               <Image src={composez} alt="" />
             </div>
           </div>
-          <div className="flex basis-[48%]">
-            <div className=" basis-[48%]">
+          <div className="flex flex-wrap justify-center gap-4 lg:gap-0  basis-full lg:basis-[48%]">
+            <div className="justify-center lg:justify-start flex basis-full lg:basis-[48%]">
               <Image src={inserez} alt="" />
             </div>
-            <div className=" space-y-5 basis-[48%]">
+            <div className=" space-y-5 basis-full items-center lg:items-start text-center lg:text-left lg:basis-[48%]">
               <NumberOrder number={3} />
               <p className=" font-semibold">Insérez vos informations</p>
             </div>
           </div>
-          <div className="flex text-right basis-[48%]">
-            <div className=" space-y-5 basis-[48%]">
+          <div className="flex basis-full flex-wrap justify-center gap-4 lg:gap-0 lg:basis-[48%]">
+            <div className=" order-2 lg:order-1 lg:text-right space-y-5 basis-full text-center lg:basis-[48%]">
               <NumberOrder number={4} />
               <p className=" font-semibold">
                 Profitez d'un volume internet doublé en récupérant votre SIM
               </p>
             </div>
-            <div className=" basis-[48%]">
+            <div className="basis-full order-1 lg:order-2 justify-center lg:justify-start flex lg:basis-[48%]">
               <Image src={profitez} alt="" />
             </div>
           </div>
