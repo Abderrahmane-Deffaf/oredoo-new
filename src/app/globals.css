@@ -2,26 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Rubik", sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .wrapper {
+    @apply max-w-[1200px] mx-auto px-4;
+  }
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+  h3 {
+    @apply font-bold text-2xl;
+  }
+  h2 {
+    @apply font-bold text-4xl;
+  }
+}
+
+.header {
+  animation: header-drop 3s normal 1s both;
+}
+
+@keyframes header-drop {
+  0% {
+    transform: rotate(270deg);
+    font-size: 8rem;
+    top: 15rem;
+    left: -5rem;
+    font-weight: bold;
+  }
+  20%,
+  40% {
+    transform: rotate(360deg);
+    font-size: 8rem;
+    top: 15rem;
+    left: 5rem;
+    font-weight: bold;
+  }
+  60%,
+  70% {
+    transform: rotate(360deg);
+    font-size: 8rem;
+    top: 15rem;
+    left: 15rem;
+    font-weight: bold;
+  }
+  100% {
+    transform: rotate(360deg);
+    font-size: 2.5rem;
+    top: 7rem;
+    left: 26rem;
+    font-weight: bold;
+  }
+}
+
+.hero_image {
+  animation: image-slide 3s normal 1s both;
+}
+
+@keyframes image-slide {
+  0%,
+  30% {
+    transform: translateX(200%);
+  }
+  60% {
+    transform: translateX(50%);
+  }
+  75% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0%);
   }
 }
