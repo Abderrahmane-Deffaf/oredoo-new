@@ -3,388 +3,10 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import clsx from "clsx";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-import facebook from "@/assets/icons/facebook.svg";
-import youtube from "@/assets/icons/youtube.svg";
-import tiktok from "@/assets/icons/tiktok.svg";
-import instagram from "@/assets/icons/instagram.svg";
+
 import Image from "next/image";
-const offers = [
-  {
-    internet: {
-      name: "Internet",
-      values: [
-        {
-          offre: 50,
-          prix: 1800,
-        },
-        {
-          offre: 40,
-          prix: 1500,
-        },
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 30,
-          prix: 1200,
-        },
-        {
-          offre: 20,
-          prix: 1000,
-        },
-      ],
-    },
-    appelOredoo: {
-      name: "Appels vers Ooredoo",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-    appelAutres: {
-      name: "Appels vers les autres réseaux",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-    sms: {
-      name: "SMS",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-  },
-  {
-    internet: {
-      name: "Internet",
-      values: [
-        {
-          offre: 50,
-          prix: 1800,
-        },
-        {
-          offre: 40,
-          prix: 1500,
-        },
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 30,
-          prix: 1200,
-        },
-        {
-          offre: 20,
-          prix: 1000,
-        },
-      ],
-    },
-    appelOredoo: {
-      name: "Appels vers Ooredoo",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-    appelAutres: {
-      name: "Appels vers les autres réseaux",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-    sms: {
-      name: "SMS",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-  },
-  {
-    internet: {
-      name: "Internet",
-      values: [
-        {
-          offre: 50,
-          prix: 1800,
-        },
-        {
-          offre: 40,
-          prix: 1500,
-        },
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 30,
-          prix: 1200,
-        },
-        {
-          offre: 20,
-          prix: 1000,
-        },
-      ],
-    },
-    appelOredoo: {
-      name: "Appels vers Ooredoo",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-    appelAutres: {
-      name: "Appels vers les autres réseaux",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-    sms: {
-      name: "SMS",
-      values: [
-        {
-          offre: 100,
-          prix: 200,
-        },
-
-        {
-          offre: 400,
-          prix: 400,
-        },
-
-        {
-          offre: 0,
-          prix: 0,
-        },
-        {
-          offre: 1000,
-          prix: 600,
-        },
-        {
-          offre: 10,
-          prix: 50,
-        },
-      ],
-    },
-  },
-];
-
-const defaultOffre = {
-  internet: {
-    offre: 0,
-    prix: 0,
-  },
-  appelOredoo: {
-    offre: 0,
-    prix: 0,
-  },
-  appelAutres: {
-    offre: 0,
-    prix: 0,
-  },
-  sms: {
-    offre: 0,
-    prix: 0,
-  },
-  extra: {
-    offre: -1,
-    prix: 0,
-  },
-};
-
-const extra = [
-  {
-    name: "FB & Messenger",
-    icon: facebook,
-    offre: 0,
-    prix: 200,
-  },
-  {
-    name: "Youtube",
-    icon: youtube,
-    offre: 1,
-    prix: 200,
-  },
-  {
-    name: "TikTok",
-    icon: tiktok,
-    offre: 2,
-    prix: 200,
-  },
-  {
-    name: "Instagram",
-    icon: instagram,
-    offre: 3,
-    prix: 200,
-  },
-];
+import { defaultOffre, extra, offers } from "./content";
+import OffersSlide from "./offers-slide";
 
 export default function OffersForm() {
   const [currentOffer, setCurrentOffer] = useState(15);
@@ -402,7 +24,7 @@ export default function OffersForm() {
           </TabsTrigger>
         </TabsList>
         <TabsContent
-          className=" flex flex-col gap-[3rem] items-center"
+          className=" flex flex-col gap-[3rem]  items-center"
           value="personalisez"
         >
           <div className=" space-x-4 bg-white shadow-md py-2 lg:px-6 px-2 rounded-[40px]">
@@ -424,119 +46,47 @@ export default function OffersForm() {
               </Button>
             ))}
           </div>
-          <div className=" w-full space-y-4">
-            <p className=" text-center">
-              {offerFeatures.internet.name}: {totalOffer.internet.prix} DA
-            </p>
-            <Carousel opts={{ startIndex: 1 }} className="w-full ">
-              <CarouselContent className=" ml-0 ">
-                {offerFeatures.internet.values.map((Element, index) => (
-                  <CarouselItem
-                    className=" basis-[30%] pl-0 lg:basis-1/4"
-                    key={index}
-                  >
-                    <Button
-                      className={clsx(
-                        "bg-transparent hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full text-lg lg:text-2xl border-2 border-oredoo ",
-                        {
-                          "bg-oredoo text-white":
-                            Element.offre === totalOffer.internet.offre,
-                        }
-                      )}
-                    >
-                      {Element.offre} GO
-                    </Button>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </div>
-          <div className=" w-full space-y-4">
-            <p className=" text-center">
-              {offerFeatures.appelOredoo.name}: {totalOffer.appelOredoo.prix} DA
-            </p>
-            <Carousel opts={{ startIndex: 1 }} className="w-full ">
-              <CarouselContent className=" ml-0 ">
-                {offerFeatures.appelOredoo.values.map((Element, index) => (
-                  <CarouselItem
-                    className="basis-[30%] pl-0 lg:basis-1/4"
-                    key={index}
-                  >
-                    <Button
-                      className={clsx(
-                        "bg-transparent text-lg hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full lg:text-2xl border-2 border-oredoo ",
-                        {
-                          "bg-oredoo text-white":
-                            Element.offre === totalOffer.appelOredoo.offre,
-                        }
-                      )}
-                    >
-                      {Element.offre} MIN
-                    </Button>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </div>
-          <div className=" w-full space-y-4">
-            <p className=" text-center">
-              {offerFeatures.appelAutres.name}: {totalOffer.appelAutres.prix} DA
-            </p>
-            <Carousel opts={{ startIndex: 1 }} className="w-full ">
-              <CarouselContent className=" ml-0 ">
-                {offerFeatures.appelAutres.values.map((Element, index) => (
-                  <CarouselItem
-                    className="basis-[30%] pl-0 lg:basis-1/4"
-                    key={index}
-                  >
-                    <Button
-                      className={clsx(
-                        "bg-transparent text-lg hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full lg:text-2xl border-2 border-oredoo ",
-                        {
-                          "bg-oredoo text-white":
-                            Element.offre === totalOffer.appelAutres.offre,
-                        }
-                      )}
-                    >
-                      {Element.offre} GO
-                    </Button>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </div>
-          <div className=" w-full space-y-4">
-            <p className=" text-center">
-              {offerFeatures.sms.name}: {totalOffer.sms.prix} DA
-            </p>
-            <Carousel opts={{ startIndex: 1 }} className="w-full ">
-              <CarouselContent className=" ml-0 ">
-                {offerFeatures.sms.values.map((Element, index) => (
-                  <CarouselItem
-                    className=" pl-0 basis-[30%] lg:basis-1/4"
-                    key={index}
-                  >
-                    <Button
-                      className={clsx(
-                        "bg-transparent text-lg hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full lg:text-2xl border-2 border-oredoo ",
-                        {
-                          "bg-oredoo text-white":
-                            Element.offre === totalOffer.sms.offre,
-                        }
-                      )}
-                    >
-                      {Element.offre} SMS
-                    </Button>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-            </Carousel>
-          </div>
+          <OffersSlide
+            setTotalOffer={setTotalOffer}
+            totalOffer={totalOffer}
+            offerValues={offerFeatures.internet.values}
+            offerTotal={totalOffer.internet}
+            offerName={offerFeatures.internet.name}
+            offerUnit="GO"
+          />
+          <OffersSlide
+            setTotalOffer={setTotalOffer}
+            totalOffer={totalOffer}
+            offerUnit="MIN"
+            offerValues={offerFeatures.appelOredoo.values}
+            offerTotal={totalOffer.appelOredoo}
+            offerName={offerFeatures.appelOredoo.name}
+          />
+          <OffersSlide
+            totalOffer={totalOffer}
+            setTotalOffer={setTotalOffer}
+            offerValues={offerFeatures.appelAutres.values}
+            offerUnit="MIN"
+            offerTotal={totalOffer.appelAutres}
+            offerName={offerFeatures.appelAutres.name}
+          />
+
+          <OffersSlide
+            setTotalOffer={setTotalOffer}
+            totalOffer={totalOffer}
+            offerValues={offerFeatures.sms.values}
+            offerUnit="SMS"
+            offerTotal={totalOffer.sms}
+            offerName={offerFeatures.sms.name}
+          />
           <div className=" w-full flex flex-col lg:flex-row items-center justify-between">
             <h3>Sélectionnez votre EXTRA</h3>
             <div className=" flex w-full flex-wrap lg:flex-nowrap  gap-4 ">
               {extra.map((Element, index) => (
                 <Button
+                  onClick={() =>
+                    setTotalOffer({ ...totalOffer, ...{ extra: Element } })
+                  }
                   key={`${Element.offre}-${index}`}
                   className={clsx(
                     " bg-transparent basis-[47%]  lg:basis-1/4 h-full text-black hover:bg-transparent hover:outline-2 hover:outline hover:outline-oredoo rounded-lg p-3 flex flex-col gap-3 shadow-md",
