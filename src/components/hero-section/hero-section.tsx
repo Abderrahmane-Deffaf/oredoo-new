@@ -11,6 +11,7 @@ export default function HeroSection() {
         <Image
           className="w-full h-full hero_image "
           src={hero}
+          priority
           alt="hero image"
         />
       </div>
