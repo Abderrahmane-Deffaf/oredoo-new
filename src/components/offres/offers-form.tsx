@@ -408,6 +408,7 @@ export default function OffersForm() {
           <div className=" space-x-4 bg-white shadow-md py-2 px-6 rounded-[40px]">
             {[30, 15, 7].map((Element, index) => (
               <Button
+                key={Element}
                 onClick={() => {
                   setCurrentOffer(Element);
                   setOfferFeatures(offers[index]);
@@ -524,6 +525,7 @@ export default function OffersForm() {
             <div className=" flex w-full  gap-4 ">
               {extra.map((Element, index) => (
                 <Button
+                  key={`${Element.offre}-${index}`}
                   className={clsx(
                     " bg-transparent w-[23%] h-full text-black hover:bg-transparent hover:outline-2 hover:outline hover:outline-oredoo rounded-lg p-3 flex flex-col gap-3 shadow-md",
                     {

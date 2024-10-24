@@ -18,7 +18,7 @@ export default function Footer() {
       values: [
         "À propos",
         "Devenez notre fournisseur (Inscrivez-vous ici)",
-        "Catalogue d'interconnexion 2023-2024",
+        "Catalogue d interconnexion 2023-2024",
       ],
     },
 
@@ -55,18 +55,18 @@ export default function Footer() {
                 type="email"
               />
               <Button className=" h-full font-semibold bg-oredoo rounded-none hover:bg-oredoo/80">
-                S'abonner
+                S abonner
               </Button>
             </div>
           </div>
         </div>
         <div className=" space-y-12 basis-[70%]">
           <div className=" flex gap-2">
-            {content.map((Element, index) => (
+            {content.map((Element) => (
               <ul className=" basis-1/3 space-y-6" key={Element.title}>
                 <p className=" text-lg font-semibold">{Element.title}</p>
                 <div className=" space-y-3">
-                  {Element.values.map((Element, index) => (
+                  {Element.values.map((Element) => (
                     <li className=" font-medium text-gray-700" key={Element}>
                       <Link href="">{Element}</Link>
                     </li>
@@ -76,7 +76,7 @@ export default function Footer() {
             ))}
           </div>
           <div className=" flex justify-between">
-            <h3>TÉLÉCHARGER L'APP</h3>
+            <h3>TÉLÉCHARGER L APP</h3>
             <div className=" basis-1/2">
               <DownloadApp />
             </div>

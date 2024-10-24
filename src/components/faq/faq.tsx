@@ -53,7 +53,7 @@ export default function Faq() {
         <div className=" basis-1/2">
           <Accordion type="single" collapsible className="w-full">
             {content.map((Element, index) => (
-              <AccordionItem value={`item-${index}`}>
+              <AccordionItem key={Element.question} value={`item-${index}`}>
                 <AccordionTrigger className=" text-lg font-bold text-left">
                   {Element.question}
                 </AccordionTrigger>
