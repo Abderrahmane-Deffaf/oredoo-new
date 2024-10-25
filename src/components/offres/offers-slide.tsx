@@ -25,10 +25,7 @@ type TotalOfferType = {
     offre: number;
     prix: number;
   };
-  extra: {
-    offre: number;
-    prix: number;
-  };
+  extra: offertype[];
 };
 
 type OffersSlideProps = {

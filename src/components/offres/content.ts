@@ -346,10 +346,24 @@ export const defaultOffre = {
     offre: 0,
     prix: 0,
   },
-  extra: {
-    offre: -1,
-    prix: 0,
-  },
+  extra: [
+    {
+      offre: -1,
+      prix: 0,
+    },
+    {
+      offre: -1,
+      prix: 0,
+    },
+    {
+      offre: -1,
+      prix: 0,
+    },
+    {
+      offre: -1,
+      prix: 0,
+    },
+  ],
 };
 
 export const extra = [

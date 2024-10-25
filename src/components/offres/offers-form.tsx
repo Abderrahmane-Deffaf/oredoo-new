@@ -84,15 +84,21 @@ export default function OffersForm() {
             <div className=" flex w-full flex-wrap lg:flex-nowrap  gap-4 ">
               {extra.map((Element, index) => (
                 <Button
-                  onClick={() =>
-                    setTotalOffer({ ...totalOffer, ...{ extra: Element } })
-                  }
+                  onClick={() => {
+                    const newExtra = [...totalOffer.extra];
+                    if (newExtra[index].prix === Element.prix) {
+                      newExtra[index] = { offre: -1, prix: 0 };
+                    } else {
+                      newExtra[index] = Element;
+                    }
+                    setTotalOffer({ ...totalOffer, ...{ extra: newExtra } });
+                  }}
                   key={`${Element.offre}-${index}`}
                   className={clsx(
                     " bg-transparent basis-[47%]  lg:basis-1/4 h-full text-black hover:bg-transparent hover:outline-2 hover:outline hover:outline-oredoo rounded-lg p-3 flex flex-col gap-3 shadow-md",
                     {
                       "outline-2 outline outline-oredoo ":
-                        Element.offre === totalOffer.extra.offre,
+                        Element.offre === totalOffer.extra[index].offre,
                     }
                   )}
                 >
@@ -110,7 +116,10 @@ export default function OffersForm() {
               <span className=" text-black">TOTAL: </span>
               {totalOffer.appelAutres.prix +
                 totalOffer.appelOredoo.prix +
-                totalOffer.extra.prix +
+                totalOffer.extra[0].prix +
+                totalOffer.extra[1].prix +
+                totalOffer.extra[2].prix +
+                totalOffer.extra[3].prix +
                 totalOffer.internet.prix +
                 totalOffer.sms.prix}{" "}
               DA
