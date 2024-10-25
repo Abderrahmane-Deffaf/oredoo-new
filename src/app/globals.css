@@ -83,3 +83,9 @@ body {
     transform: translateX(0%);
   }
 }
+
+@layer components {
+  .snap_slide {
+    @apply border-oredoo !py-8;
+  }
+}

@@ -11,66 +11,77 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { useContext } from "react";
 import clsx from "clsx";
+import useEmblaCarousel from "embla-carousel-react";
+import ClassNames from "embla-carousel-class-names";
+
 export default function SelectOffre() {
-  const carouselContext = useContext(CarouselContext);
-  console.log(carouselContext?.api?.selectedScrollSnap());
+  const [emblaRef, api] = useEmblaCarousel(
+    {
+      startIndex: 1,
+      skipSnaps: true,
+    },
+    [
+      ClassNames({
+        snapped: "snap_slide",
+      }),
+    ]
+  );
+
+  console.log(api?.selectedScrollSnap());
+
   return (
     <div>
-      <div className="wrapper flex gap-8 flex-col items-center">
+      <div className="wrapper group-[]: flex gap-8 flex-col items-center">
         <h2 className=" text-center lg:text-left">
           Sélectionnez un forfait existant
         </h2>
-        <Carousel opts={{ startIndex: 1 }} className="w-full max-w-[80%]">
-          <CarouselContent className="   lg:space-x-8  items-center">
+        <div
+          className=" embla max-w-full md:max-w-[80%] overflow-hidden "
+          ref={emblaRef}
+        >
+          <div className=" flex  space-x-4 items-center   embla__container ">
             {Array.from({ length: 3 }).map((_, index) => (
-              <CarouselItem
-                className={clsx(
-                  "md:basis-1/2 ml-1 lg:ml-0  border-oredoo lg:border-gray-400   rounded-lg  border-[2px]  basis-[90%]    shadow-sm  h-fit   lg:basis-1/3",
-                  {
-                    "lg:border-oredoo lg:min-w-[25rem]   lg:py-10": index === 1,
-                  }
-                )}
+              <div
+                className="embla__slide border h-fit p-4 space-y-6 rounded-lg basis-full   flex-shrink-0 flex-grow-0 md:basis-1/2"
                 key={index}
               >
-                <div className={clsx("p-4 space-y-6 ", {})}>
-                  <div className="flex justify-between items-center">
-                    <p
-                      className={clsx(" font-bold text-xl", {
-                        "text-3xl": index === 1,
-                      })}
-                    >
-                      N'YOOZ 1500
-                    </p>
-                    <p className=" font-semibold">Valable 30 jours</p>
-                  </div>
-                  <p className=" text-[#D6001C] font-bold text-lg">
-                    30 Go Internet
+                <div className="flex justify-between items-center">
+                  <p
+                    className={clsx(" font-bold text-xl", {
+                      "text-3xl": index === 1,
+                    })}
+                  >
+                    N'YOOZ 1500
                   </p>
-                  <div className=" space-y-2 ">
-                    <p className="flex items-center gap-1">
-                      <Image src={check} alt="check" />
-                      Appels et SMS vers Ooredoo
-                    </p>
-                    <p className="flex items-center gap-1">
-                      <Image src={check} alt="check" />
-                      Facebook & Messenger illimités
-                    </p>
-                    <p className="flex items-center gap-1">
-                      <Image src={check} alt="check" />
-                      150 minutes vers les autres réseaux
-                    </p>
-                  </div>
-                  <Button className=" flex w-full justify-between bg-[#D6001C] h-full  rounded-[40px] py-2 hover:bg-[#D6001C]/80 px-6">
-                    <p className=" font-bold text-2xl">1500 DA</p>
-                    <div>
-                      <Image src={arrow} alt="arrow" />
-                    </div>
-                  </Button>
+                  <p className=" font-semibold">Valable 30 jours</p>
                 </div>
-              </CarouselItem>
+                <p className=" text-[#D6001C] font-bold text-lg">
+                  30 Go Internet
+                </p>
+                <div className=" space-y-2 ">
+                  <p className="flex items-center gap-1">
+                    <Image src={check} alt="check" />
+                    Appels et SMS vers Ooredoo
+                  </p>
+                  <p className="flex items-center gap-1">
+                    <Image src={check} alt="check" />
+                    Facebook & Messenger illimités
+                  </p>
+                  <p className="flex items-center gap-1">
+                    <Image src={check} alt="check" />
+                    150 minutes vers les autres réseaux
+                  </p>
+                </div>
+                <Button className=" flex w-full justify-between bg-[#D6001C] h-auto  rounded-[40px] py-2 hover:bg-[#D6001C]/80 px-6">
+                  <p className=" font-bold text-2xl">1500 DA</p>
+                  <div>
+                    <Image src={arrow} alt="arrow" />
+                  </div>
+                </Button>
+              </div>
             ))}
-          </CarouselContent>
-        </Carousel>
+          </div>
+        </div>
       </div>
     </div>
   );
