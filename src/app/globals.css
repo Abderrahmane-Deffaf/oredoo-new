@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --text-high-contrast-rgb-value: 49, 49, 49;
+  --detail-medium-contrast-rgb-value: 234, 234, 234;
+}
+
 body {
   font-family: "Rubik", sans-serif;
 }
@@ -87,5 +92,100 @@ body {
 @layer components {
   .snap_slide {
     @apply border-oredoo !py-8;
+  }
+}
+
+.embla__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.2rem;
+}
+
+.embla__dot {
+  -webkit-tap-highlight-color: #d9d9d9;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.embla__dot:after {
+  background-color: #d9d9d9;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  content: "";
+}
+.embla__dot--selected:after {
+  background-color: #d6001c;
+  width: 3rem;
+  border-radius: 10px;
+}
+
+.embla__dots_snap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.embla__dot_snap {
+  -webkit-tap-highlight-color: #d9d9d9;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 1.5rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.embla__dot_snap:after {
+  background-color: #d9d9d9;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  content: "";
+}
+.embla__dot_snap--selected:after {
+  background-color: #fce028;
+  width: 3rem;
+  border-radius: 10px;
+}
+
+.image__slide {
+  animation: slide_fade 1s ease-in-out both;
+}
+
+@keyframes slide_fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

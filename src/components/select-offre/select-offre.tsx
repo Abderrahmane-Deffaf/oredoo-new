@@ -1,18 +1,12 @@
 "use client";
 import arrow from "@/assets/icons/arrow.svg";
 import check from "@/assets/icons/check.svg";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselContext,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import { useContext } from "react";
 import clsx from "clsx";
 import useEmblaCarousel from "embla-carousel-react";
 import ClassNames from "embla-carousel-class-names";
+import { DotButton, useDotButton } from "./dot-button";
 
 export default function SelectOffre() {
   const [emblaRef, api] = useEmblaCarousel(
@@ -27,6 +21,8 @@ export default function SelectOffre() {
     ]
   );
 
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(api);
+
   console.log(api?.selectedScrollSnap());
 
   return (
@@ -36,7 +32,7 @@ export default function SelectOffre() {
           Sélectionnez un forfait existant
         </h2>
         <div
-          className=" embla max-w-full md:max-w-[80%] overflow-hidden "
+          className=" embla max-w-full space-y-4 md:max-w-[80%] overflow-hidden "
           ref={emblaRef}
         >
           <div className=" flex  space-x-4 items-center   embla__container ">
@@ -79,6 +75,17 @@ export default function SelectOffre() {
                   </div>
                 </Button>
               </div>
+            ))}
+          </div>
+          <div className="embla__dots">
+            {scrollSnaps.map((_, index) => (
+              <DotButton
+                key={index}
+                onClick={() => onDotButtonClick(index)}
+                className={"embla__dot".concat(
+                  index === selectedIndex ? " embla__dot--selected" : ""
+                )}
+              />
             ))}
           </div>
         </div>

@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.3.0",
+    "embla-carousel-autoplay": "^8.3.0",
     "embla-carousel-class-names": "^8.3.0",
     "embla-carousel-react": "^8.3.0",
     "lucide-react": "^0.453.0",
@@ -29,6 +30,7 @@
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.5",
     "react-hook-form": "^7.53.1",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"

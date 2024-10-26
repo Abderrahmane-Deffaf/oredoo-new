@@ -16,7 +16,7 @@ export default function VousChoisissez() {
         <div className=" flex flex-wrap gap-y-16 justify-between">
           <div className="flex flex-wrap justify-center gap-4 lg:gap-0 basis-full lg:basis-[48%]">
             <div className="justify-center lg:justify-start flex basis-full lg:basis-[48%]">
-              <Image src={premierapp} alt="" />
+              <Image className=" w-1/2 lg:w-full" src={premierapp} alt="" />
             </div>
             <div className=" space-y-5 basis-full items-center lg:items-start text-center lg:text-left lg:basis-[48%]">
               <NumberOrder number={1} />
@@ -30,12 +30,12 @@ export default function VousChoisissez() {
               <p className=" font-semibold">Composez votre numéro mobile</p>
             </div>
             <div className="basis-full justify-center lg:justify-start flex order-1 lg:order-2 lg:basis-[48%]">
-              <Image src={composez} alt="" />
+              <Image className=" w-1/2 lg:w-full" src={composez} alt="" />
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-4 lg:gap-0  basis-full lg:basis-[48%]">
             <div className="justify-center lg:justify-start flex basis-full lg:basis-[48%]">
-              <Image src={inserez} alt="" />
+              <Image className=" w-1/2 lg:w-full" src={inserez} alt="" />
             </div>
             <div className=" space-y-5 basis-full items-center lg:items-start text-center lg:text-left lg:basis-[48%]">
               <NumberOrder number={3} />
@@ -49,8 +49,8 @@ export default function VousChoisissez() {
                 Profitez d'un volume internet doublé en récupérant votre SIM
               </p>
             </div>
-            <div className="basis-full order-1 lg:order-2 justify-center lg:justify-start flex lg:basis-[48%]">
-              <Image src={profitez} alt="" />
+            <div className="basis-full order-1 h-fit lg:order-2 justify-center lg:justify-start flex lg:basis-[48%]">
+              <Image className=" w-1/2 lg:w-full" src={profitez} alt="" />
             </div>
           </div>
         </div>

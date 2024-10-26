@@ -50,7 +50,7 @@ export default function Faq() {
           <h2 className=" text-center lg:text-left">
             Frequently Asked Questions
           </h2>
-          <Image src={faq_image} alt="" />
+          <Image className=" w-1/2" src={faq_image} alt="" />
         </div>
         <div className=" basis-1/2">
           <Accordion type="single" collapsible className="w-full">

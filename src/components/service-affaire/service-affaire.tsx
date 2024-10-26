@@ -30,7 +30,7 @@ export default function ServiceAffaire() {
         alt=""
       />
       <Image
-        className=" lg:block hidden absolute right-0 bottom-0"
+        className=" w-[13%] lg:block hidden absolute right-0 bottom-0"
         src={stairs}
         alt=""
       />

@@ -3,6 +3,8 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 import clsx from "clsx";
+import check from "@/assets/icons/check.svg";
+import arrow from "@/assets/icons/arrow.svg";
 
 import Image from "next/image";
 import { defaultOffre, extra, offers } from "./content";
@@ -19,7 +21,7 @@ export default function OffersForm() {
           <TabsTrigger className="uppercase w-fit" value="personalisez">
             Personnaliser lr forfait
           </TabsTrigger>
-          <TabsTrigger className="uppercase w-fit" disabled value="combinaison">
+          <TabsTrigger className="uppercase w-fit" value="combinaison">
             combinaisons Populaires
           </TabsTrigger>
         </TabsList>
@@ -95,7 +97,7 @@ export default function OffersForm() {
                   }}
                   key={`${Element.offre}-${index}`}
                   className={clsx(
-                    " bg-transparent basis-[47%]  lg:basis-1/4 h-full text-black hover:bg-transparent hover:outline-2 hover:outline hover:outline-oredoo rounded-lg p-3 flex flex-col gap-3 shadow-md",
+                    " bg-transparent basis-[47%]  lg:basis-1/4 h-full text-black hover:bg-transparent  rounded-lg p-3 flex flex-col gap-3 shadow-md",
                     {
                       "outline-2 outline outline-oredoo ":
                         Element.offre === totalOffer.extra[index].offre,
@@ -129,7 +131,51 @@ export default function OffersForm() {
             </Button>
           </div>
         </TabsContent>
-        <TabsContent value="combinaison"></TabsContent>
+        <TabsContent
+          value="combinaison"
+          className=" flex flex-wrap gap-y-8 max-w-full lg:max-w-[80%] mx-auto  justify-between"
+        >
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div
+              className="embla__slide border h-fit p-4 space-y-6 rounded-lg basis-full shadow-lg   flex-shrink-0 flex-grow-0 md:basis-[48%]"
+              key={index}
+            >
+              <div className="flex justify-between items-center">
+                <p
+                  className={clsx(" font-bold text-xl", {
+                    "text-3xl": index === 1,
+                  })}
+                >
+                  N'YOOZ 1500
+                </p>
+                <p className=" font-semibold">Valable 30 jours</p>
+              </div>
+              <p className=" text-[#D6001C] font-bold text-lg">
+                30 Go Internet
+              </p>
+              <div className=" space-y-2 ">
+                <p className="flex items-center gap-1">
+                  <Image src={check} alt="check" />
+                  Appels et SMS vers Ooredoo
+                </p>
+                <p className="flex items-center gap-1">
+                  <Image src={check} alt="check" />
+                  Facebook & Messenger illimités
+                </p>
+                <p className="flex items-center gap-1">
+                  <Image src={check} alt="check" />
+                  150 minutes vers les autres réseaux
+                </p>
+              </div>
+              <Button className=" flex w-full justify-between bg-[#D6001C] h-auto  rounded-[40px] py-2 hover:bg-[#D6001C]/80 px-6">
+                <p className=" font-bold text-2xl">1500 DA</p>
+                <div>
+                  <Image src={arrow} alt="arrow" />
+                </div>
+              </Button>
+            </div>
+          ))}
+        </TabsContent>
       </Tabs>
     </div>
   );
