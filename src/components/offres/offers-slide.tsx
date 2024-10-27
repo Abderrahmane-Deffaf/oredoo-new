@@ -109,7 +109,7 @@ export default function OffersSlide({
                   api?.scrollTo(index);
                 }}
                 className={clsx(
-                  "bg-transparent hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full text-lg lg:text-2xl border-2 border-oredoo ",
+                  "bg-transparent hover:bg-oredoo/80 hover:text-white text-black font-bold rounded-none py-3 px-6 w-full h-full text-lg lg:text-2xl border-y-2 border-x-[1px] border-oredoo ",
                   {
                     "bg-oredoo text-white": Element.offre === offerTotal.offre,
                   }
