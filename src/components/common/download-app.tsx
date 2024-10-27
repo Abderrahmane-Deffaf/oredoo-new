@@ -10,14 +10,19 @@ export default function DownloadApp({ className }: { className?: string }) {
     {
       alt: "google paly",
       image: googleplay,
+      url: "https://play.google.com/store/apps/details?id=com.algeria.selfcare.app.android&hl=fr",
     },
-    { alt: "app store", image: appstore },
-    { alt: "appgallery", image: appgallery },
+    {
+      alt: "app store",
+      image: appstore,
+      url: "https://play.google.com/store/apps/details?id=com.algeria.selfcare.app.android&hl=fr",
+    },
+    { alt: "appgallery", image: appgallery, url: "" },
   ];
   return (
     <div className={cn(["flex gap-2", className])}>
       {apps.map((Element) => (
-        <Link key={Element.alt} href="">
+        <Link key={Element.alt} href={Element.url}>
           <Image src={Element.image} alt={Element.alt} />
         </Link>
       ))}
