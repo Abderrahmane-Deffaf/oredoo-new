@@ -141,14 +141,7 @@ export default function OffersForm() {
               key={index}
             >
               <div className="flex justify-between items-center">
-                <p
-                  className={clsx(" font-bold text-xl", {
-                    "text-3xl": index === 1,
-                  })}
-                >
-                  N'YOOZ 1500
-                </p>
-                <p className=" font-semibold">Valable 30 jours</p>
+                <p className="text-xl font-semibold">Valable 30 jours</p>
               </div>
               <p className=" text-[#D6001C] font-bold text-lg">
                 30 Go Internet

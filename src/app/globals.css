@@ -90,9 +90,13 @@ body {
 }
 
 @layer components {
-  .snap_slide {
+  .snap_slide > div {
     @apply border-oredoo !py-8;
   }
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
 }
 
 .embla__dots {
